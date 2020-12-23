@@ -14,6 +14,10 @@ import lombok.Setter;
 @Setter
 public class SecurityUser extends User {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 4284967184525106795L;
     private static final String ROLE_PREFIX = "ROLE_";
     
     public SecurityUser(Member member) {
