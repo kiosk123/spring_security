@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/layout/layout}">
+
+<div layout:fragment="content">
+
+	<div class="panel-heading">Register Board</div>
+	<div class="panel-body">
+		<form th:action="@{/board/register}" th:method="post">
+			<div class="form-group">
+				<label>Title</label>
+				<input class="form-control" name="title">
+				<p class="help-block">Title text here.</p>
+			</div>
+			
+			<div class="form-group">
+				<label>Content</label>
+				<textarea class="form-control" rows="3" name="content"></textarea>
+				<p class="help-block">Title text here.</p>
+			</div>
+			
+			<div class="form-group">
+				<label>Writer</label>
+				<input class="form-control" name="writer" />
+				<p class="help-block">Reset Button</p>
+			</div>
+			<button type="submit" class="btn btn-default">Submit Button</button>
+			<button type="reset" class="btn btn-primary">Reset Button</button>
+		</form>
+	</div>
+</div>
+<!--  end fragment -->
+
+<th:block layout:fragment="script">
+<script th:inline="javascript">
+	$(document).ready(function() {
+		
+	});
+</script>
+</th:block>
