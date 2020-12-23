@@ -32,3 +32,13 @@
        - 사용하고 있는 시큐리티 버전에 맞춰서 mvnrepository에서 다운 받는다
        - 이때 스프링 시큐리티 네임스페이스는 sec이다
           - 사용 예제는 admin.html 참고
+    - remember-me 처리
+       - 쿠키에 저장된 사용자 로그인 정보를 이용하여 유저정보 입력없이 자동로그인하기
+       - 로그인 폼에 name 프로퍼티 값이 remember-me인 체크박스를 추가해줘야함
+       - 설정 내용은 SecurityConfig 참조
+       - 쿠키가 아닌 데이터베이스를 이용해서 구현할수도 있음
+          - 이미 구현된 JdbcTokenRepositoryImpl을 그대로 사용하는 방법이 있음
+              - 이때 생성해야하는 테이블은 security.sql을 참고
+          - PersistenceTokenRepository를 구현하는 방법이 있음 [참고](https://github.com/spring-projects/spring-security/blob/master/web/src/main/java/org/springframework/security/web/authentication/rememberme/JdbcTokenRepositoryImpl.java)
+              - PersistenceTokenRepository JPA를 사용하여 구현한 것은 RememberMeTokenService를 참고할 것
+          
