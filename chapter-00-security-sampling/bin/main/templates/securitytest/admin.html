@@ -25,5 +25,9 @@
 	<p sec:authorize="hasRole('ROLE_ADMIN')">
 		<a href="@{/admin}">ADMIN</a>
 	</p>
+	
+	<!-- 실제 데이터 베이스 상의 사용자 정보를 출력 -->
+	<div>[[${#authentication.principal}]]</div>
+	<div>[[${#authentication.principal.username}]]</div>
 </body>
 </html>

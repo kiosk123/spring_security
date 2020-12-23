@@ -31,3 +31,4 @@
        - [링크](https://github.com/thymeleaf/thymeleaf-extras-springsecurity)
        - 사용하고 있는 시큐리티 버전에 맞춰서 mvnrepository에서 다운 받는다
        - 이때 스프링 시큐리티 네임스페이스는 sec이다
+          - 사용 예제는 admin.html 참고
