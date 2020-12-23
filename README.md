@@ -41,4 +41,15 @@
               - 이때 생성해야하는 테이블은 security.sql을 참고
           - PersistenceTokenRepository를 구현하는 방법이 있음 [참고](https://github.com/spring-projects/spring-security/blob/master/web/src/main/java/org/springframework/security/web/authentication/rememberme/JdbcTokenRepositoryImpl.java)
               - PersistenceTokenRepository JPA를 사용하여 구현한 것은 RememberMeTokenService를 참고할 것
+    - @Secured 어노테이션을 활용하여 컨트롤러등 메소드에 권한을 제한 할 수 있다.
+       - @Secured 어노테이션 활성화를 위해 구성 클래스에 @EnableGlobalMethodSecurity(securedEnabled=true)를 설정한다.
+    - 암호화를 위한 PasswordEncoder를 사용 다음과 같은 다양한 구현체가 있으며 여기서는 BCryptPasswordEncodeer를 별도의 빈으로 등록하여 사용
+       - AbstractPasswordEncoder
+       - BCryptPasswordEncodeer
+       - NoOpPasswordEncoder
+       - Pbkdf2PasswordEncoder
+       - NoOpPasswordEncoder
+       - SCryptPasswordEncoder
+       - StandardPasswordEncoder
+    - 회원가입 처리 구현
           

@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,6 +44,7 @@ class TestDataSetter {
     private final BoardRepository boardRepository;
     private final MemberRoleRepository memberRoleRepository;
     private final MemberRepository memberRepository;
+    private final PasswordEncoder passwordEncoder;
     
     @Transactional
     void insertBoardData() {
@@ -77,7 +79,7 @@ class TestDataSetter {
             else {
                 role = memberRole1;
             }
-            Member member = new Member("user" + n, "pw" + n, "사용자" + n, role);
+            Member member = new Member("user" + n, passwordEncoder.encode("pw" + n), "사용자" + n, role);
             memberRepository.save(member);
         });
     }

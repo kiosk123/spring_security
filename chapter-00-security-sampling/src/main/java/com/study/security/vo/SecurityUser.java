@@ -17,12 +17,13 @@ public class SecurityUser extends User {
     private static final String ROLE_PREFIX = "ROLE_";
     
     public SecurityUser(Member member) {
-        super(member.getId(),  
-             "{noop}" + member.getPassword(), 
-             Arrays.asList(new SimpleGrantedAuthority(ROLE_PREFIX + member.getMemberRole().getRoleName())));
-        
+        // passwordEncoder 사용시 주석처리
 //        super(member.getId(),  
-//              member.getPassword(), 
-//              Arrays.asList(new SimpleGrantedAuthority(member.getMemberRole().getRoleName())));
+//             "{noop}" + member.getPassword(), 
+//             Arrays.asList(new SimpleGrantedAuthority(ROLE_PREFIX + member.getMemberRole().getRoleName())));
+        
+        super(member.getId(),  
+              member.getPassword(), 
+              Arrays.asList(new SimpleGrantedAuthority(ROLE_PREFIX + member.getMemberRole().getRoleName())));
     }
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Hello Spring Security</title>
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script th:src="@{/js/vendor/jquery-3.5.1.min.js}"></script>
+
+<!-- boot strap -->
+<link rel="stylesheet" th:href="@{/bootstrap-3.3.7/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/bootstrap-3.3.7/css/bootstrap-theme.min.css}">
+<script th:src="@{/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<p>
+				<label>UID</label> 
+				<input type="text" name="uid"	th:value="${member.id}" readonly />
+			</p>
+			<p>
+				<label>UPW</label> 
+				<input type="text" name="upw" th:value="${member.password}" readonly />
+			</p>
+			<p>
+				<label>UNAME</label> 
+				<input type="text" name="uname" th:value="${member.username}" readonly />
+			</p>
+
+			<p>[[${member.roleName}]]</p>
+
+		</div>
+	</div>
+</body>
+</html>
