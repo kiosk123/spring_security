@@ -11,5 +11,19 @@
 	
 	<h3 sec:authentication="name">Spring Security username</h3>
 	<h3>[[${#authentication.name}]]</h3>
+	
+	<!-- url 기반 권한 설정 -->
+	<p sec:authorize-url="/admin">
+		<a href="@{/admin}">ADMIN</a>
+	</p>
+	
+	<p sec:authorize-url="/manager">
+		<a href="@{/manager}">Manager</a>
+	</p>
+	
+	<!-- role 기반 권한 설정 -->
+	<p sec:authorize="hasRole('ROLE_ADMIN')">
+		<a href="@{/admin}">ADMIN</a>
+	</p>
 </body>
 </html>
