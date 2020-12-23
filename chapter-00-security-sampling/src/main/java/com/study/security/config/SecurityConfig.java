@@ -3,16 +3,26 @@ package com.study.security.config;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+
+import com.study.security.service.RememberMeTokenService;
+import com.study.security.service.UserService;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    DataSource dataSource;
+    private DataSource dataSource;
+    
+    @Autowired
+    private UserService userService;
+    
+    @Autowired
+    private RememberMeTokenService rememberMeTokenService;
     
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -28,6 +38,34 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //권한이 없어 거부되었을 때 이동할 url 경로 지정
         http.exceptionHandling().accessDeniedPage("/accessDenied");
         http.logout().logoutUrl("/logout").invalidateHttpSession(true);
+        
+        // remember-me 처리 - remember-me이름의 쿠키를 통해 자동로그인 처리(사용자가 비번을 바꾸면 로그인 되지 않는 현상 발생할 수 있음)
+        // http.rememberMe().key("remember-me").userDetailsService(userService);
+        
+        //데이터베이스를 이용하여 처리하는 방식권장
+        //1.데이터베이스를 이용하여 처리하는 방식 JdbcTokenRepositoryImpld을 이용 - 그전에 security.sql에 정의한 테이블부터 생성후 사용할 것
+        //쿠키생성은 패스워드가 아닌 series에 있는 값을 기준으로함
+//        http.rememberMe()
+//            .key("remember-me")
+//            .userDetailsService(userService)
+//            .tokenRepository(getJDBCRepository())
+//            .tokenValiditySeconds(60 * 60 * 24); // 24시간 유지
+        
+        //2.데이터베이스를 이용하여 처리하는 방식 PersistentTokenRepository 구현체을 이용 
+        //쿠키생성은 패스워드가 아닌 series에 있는 값을 기준으로함
+        http.rememberMe()
+            .key("remember-me")
+            .userDetailsService(userService)
+            .tokenRepository(rememberMeTokenService)
+            .tokenValiditySeconds(60 * 60 * 24); // 24시간 유지
+            
+            
+    }
+    
+    private PersistentTokenRepository getJDBCRepository() {
+        JdbcTokenRepositoryImpl jdbcTokenRepositoryImpl = new JdbcTokenRepositoryImpl();
+        jdbcTokenRepositoryImpl.setDataSource(dataSource);
+        return jdbcTokenRepositoryImpl;
     }
 
     /*

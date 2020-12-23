@@ -48,7 +48,7 @@ spring:
   profiles:
   - prod
   datasource:
-    url: jdbc:h2:tcp://localhost/~/boot
+    url: jdbc:h2:tcp://localhost/~/security
     
     username: sa
     password: 
@@ -56,7 +56,7 @@ spring:
     
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
     properties:
       hibernate:
 #        show_sql: true # System.out을 통해 출력
