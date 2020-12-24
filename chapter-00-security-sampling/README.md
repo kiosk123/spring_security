@@ -8,7 +8,7 @@
 * spring data jpa
 * lombok
 * spring security5
-* mybatis
+* mybatis - (의존성만 추가하고 사용하진 않음)
 * gradle 6.6
 
 ## 타임리프 레이아웃 재사용 라이브러리
