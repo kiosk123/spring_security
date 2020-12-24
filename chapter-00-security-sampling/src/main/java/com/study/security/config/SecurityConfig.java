@@ -41,6 +41,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/manager/**").hasRole("MANAGER");
         http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN");
         
+        //게시물 권한 관리
+        http.authorizeRequests()
+            .antMatchers("/board/list").permitAll()
+            .antMatchers("/board/register")
+            .hasAnyRole("BASIC", "MANAGER", "ADMIN");
+        
         // 인가 받은 권한이 없는 관계로 접근이 막혔다면 form 태그 기반 로그인을 통해 접근할 수 있다는 것을 알림 
         // http.formLogin(); //기본 로그인 페이지 사용
         
