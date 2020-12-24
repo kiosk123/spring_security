@@ -9,6 +9,9 @@ const replyManager = (function() {
 		console.log(JSON.stringify(obj));
 		$.ajax({
 			type:'post',
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader(obj.csrf.headerName, obj.csrf.token);
+			},
 			url: `/replies/${obj.bno}`,
 			data: JSON.stringify(obj),
 			dataType:'json',
@@ -21,6 +24,9 @@ const replyManager = (function() {
 		console.log("update...");
 		$.ajax({
 			type:'put',
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader(obj.csrf.headerName, obj.csrf.token);
+			},
 			url: `/replies/${obj.bno}`,
 			data: JSON.stringify(obj),
 			dataType:'json',
@@ -32,6 +38,9 @@ const replyManager = (function() {
 	const remove = function(obj, callback) {
 		$.ajax({
 			type:'delete',
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader(obj.csrf.headerName, obj.csrf.token);
+			},
 			url: `/replies/${obj.bno}/${obj.rno}`,
 			dataType:'json',
 			contentType: "appliction/json",

@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -64,7 +65,7 @@ public class BoardController {
             return "redirect:/board/list";
         }
     }
-    
+    @Secured(value = {"ROLE_BASIC", "ROLE_MANAGER", "ROLE_ADMIN"})
     @GetMapping("/modify")
     public String getModifyForm(@RequestParam("bno")Long bno, PageVO page, Model model) {
         Optional<BoardDTO> opt = boardService.findByBno(bno);
@@ -79,6 +80,7 @@ public class BoardController {
         }
     }
     
+    @Secured(value = {"ROLE_BASIC", "ROLE_MANAGER", "ROLE_ADMIN"})
     @PostMapping("/modify")
     public String modify(BoardDTO boardDTO, PageVO page, RedirectAttributes rattr) {
         Long updateCnt = boardService.updateBoard(boardDTO);
@@ -92,6 +94,7 @@ public class BoardController {
         }
     }
     
+    @Secured(value = {"ROLE_BASIC", "ROLE_MANAGER", "ROLE_ADMIN"})
     @PostMapping("/delete")
     public String delete(BoardDTO boardDTO, PageVO page, RedirectAttributes rattr) {
         Long deleteCnt = boardService.deleteBoard(boardDTO.getBno());

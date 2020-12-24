@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/manager/**").hasRole("MANAGER");
         http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN");
         
-        //게시물 권한 관리
+        //게시물 권한 관리 - 여기서 설정 또는 @Secured 애너테이션을 이용해서 직접 설정 가능
         http.authorizeRequests()
             .antMatchers("/board/list").permitAll()
             .antMatchers("/board/register")

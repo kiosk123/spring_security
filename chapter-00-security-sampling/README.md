@@ -9,6 +9,7 @@
 * lombok
 * spring security5
 * mybatis
+* gradle 6.6
 
 ## 타임리프 레이아웃 재사용 라이브러리
 * [링크](https://ultraq.github.io/thymeleaf-layout-dialect/)
@@ -53,4 +54,7 @@
        - StandardPasswordEncoder
     - 회원가입 처리 구현
     - **form 태그에 타임리프 속성을 사용하면 별도로 csrf필터값을 세팅하지 않아도 자동적으로 csrf필터값이 세팅됨**
+       - 단 상황에 따라서 적용되는 경우와 안되는 경우가 있기에 개발자 도구에서 수시로 확인 요망
+    - 타임리프에서 로그인한 사용자인지 로그인하지 않은 사용자인지 비교는 ${#authentication.principal} eq 'anonymousUser' 를 사용한다.
+    - ajax를 이용하여 csrf 토큰 처리는 reply.js 참고 (이프로젝트는 jquery를 사용하기 때문에 $.ajax의 beforeSend 프로퍼티를 이용하여 처리함)
           

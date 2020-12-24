@@ -30,7 +30,7 @@ public class TestDataInitializer {
     
     @PostConstruct
     void init() {
-//        testDataSetter.insertBoardData();
+        testDataSetter.insertBoardData();
         testDataSetter.insertRoleAndUserData();
     }
 
