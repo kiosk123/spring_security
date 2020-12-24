@@ -10,7 +10,7 @@
     	다음과 같이 타임리프 속성을 사용한 의미없는 폼태그를 추가하여 예방한다
     -->
 	<form th:action="@{/login}">
-		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 	</form>
 	
 	<div class="panel-heading">View Page</div>
@@ -132,7 +132,10 @@
 			
 			if (userId === null) {
 				if (confirm("로그인 할까요?")) {
-					self.location = /*[[@{/login}]]*/"";
+					console.log( encodeURIComponent(self.location));
+					
+					//로그인 성공시 현재 페이지로 다시 이동하기 위한 처리
+					self.location = [[@{/login}]] + `?destUrl=${encodeURIComponent(self.location)}`;
 				}
 				return;
 			}

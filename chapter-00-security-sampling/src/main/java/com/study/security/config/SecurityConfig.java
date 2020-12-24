@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
+import com.study.security.handler.LoginSuccessHandler;
 import com.study.security.service.RememberMeTokenService;
 import com.study.security.service.UserService;
 
@@ -50,7 +51,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // 인가 받은 권한이 없는 관계로 접근이 막혔다면 form 태그 기반 로그인을 통해 접근할 수 있다는 것을 알림 
         // http.formLogin(); //기본 로그인 페이지 사용
         
-        http.formLogin().loginPage("/login");
+        http.formLogin().loginPage("/login")
+                        .successHandler(new LoginSuccessHandler());
         
         //권한이 없어 거부되었을 때 이동할 url 경로 지정
         http.exceptionHandling().accessDeniedPage("/accessDenied");

@@ -57,4 +57,8 @@
        - 단 상황에 따라서 적용되는 경우와 안되는 경우가 있기에 개발자 도구에서 수시로 확인 요망
     - 타임리프에서 로그인한 사용자인지 로그인하지 않은 사용자인지 비교는 ${#authentication.principal} eq 'anonymousUser' 를 사용한다.
     - ajax를 이용하여 csrf 토큰 처리는 reply.js 참고 (이프로젝트는 jquery를 사용하기 때문에 $.ajax의 beforeSend 프로퍼티를 이용하여 처리함)
+    - AuthenticationSuccessHandler인터페이스를 구현해서 로그인 성공 후 처리를 구현할 수 있다.  
+    SavedRequestAwareAuthenticationSuccessHandler와 같은 구현체를 구현해서 사용하는 것도 가능하다 
+       - 구현은 LoginSuccessHandler를 참고
+       - 구현된 핸들러는 Security 구성클래스의 successHandler 메소드를 통해 등록해준다.
           
