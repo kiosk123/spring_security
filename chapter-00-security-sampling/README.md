@@ -49,7 +49,7 @@
        - BCryptPasswordEncodeer
        - NoOpPasswordEncoder
        - Pbkdf2PasswordEncoder
-       - NoOpPasswordEncoder
+       - NoOpPasswordEncoder - 아무것도 안함. 테스트 용도로만 사용
        - SCryptPasswordEncoder
        - StandardPasswordEncoder
     - 회원가입 처리 구현
