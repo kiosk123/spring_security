@@ -9,4 +9,4 @@
 
 rootProject.name = 'spring-security'
 
-include 'chapter-00-security-sampling'
+include 'chapter-00-security-example'
