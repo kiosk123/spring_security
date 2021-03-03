@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-StartApplication<chapter-01>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "study.StartApplication",
+            "projectName": "chapter-01",
+            "args": ""
+        }
+    ]
+}
