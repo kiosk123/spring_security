@@ -11,3 +11,4 @@ rootProject.name = 'spring-security'
 
 include 'chapter-00-security-example'
 include 'chapter-01'
+include 'chapter-02'
