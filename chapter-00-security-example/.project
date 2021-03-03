@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>chapter-00-security-sampling</name>
+	<name>chapter-00-security-example</name>
 	<comment>Project chapter-00-security-sampling created by Buildship.</comment>
 	<projects>
 	</projects>
@@ -40,7 +40,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1614685940669</id>
+			<id>0</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
