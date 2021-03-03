@@ -1,9 +1,9 @@
 # 스프링 시큐리티 연습
 
 ## 프로젝트 구성
-java 8+
-spring boot 2.4+
-h2 database
+java 8+  
+spring boot 2.4+  
+h2 database  
 gradle 6.5+
 ## 챕터별 설명
  - 챕터 0 - 시큐리티 맛보기
