@@ -11,3 +11,4 @@ gradle 6.5+
  - 챕터 1 - 시큐리티 프로젝트 구성
  - 챕터 2 - 사용자 정의 보안 기능 구현
  - 챕터 3 - 폼(form) 로그인 인증
+ - 챕터 4 - UsernamePasswordAuthenticationFilter의 이해

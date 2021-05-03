@@ -13,6 +13,6 @@ public class SecurityController {
 
     @GetMapping("/loginPage")
     public String loginPage() {
-        return "loginPage";
+        return "loginPage"; // 현재는 loginPage URL은 loginPage 문자만 출력되도록 설정함
     }
 }
