@@ -26,6 +26,16 @@
             "mainClass": "study.StartApplication",
             "projectName": "chapter-02",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-StartApplication<chapter-05>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "study.StartApplication",
+            "projectName": "chapter-05",
+            "args": ""
         }
     ]
 }

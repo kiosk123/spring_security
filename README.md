@@ -12,3 +12,4 @@ gradle 6.5+
  - 챕터 2 - 사용자 정의 보안 기능 구현
  - 챕터 3 - 폼(form) 로그인 인증
  - 챕터 4 - UsernamePasswordAuthenticationFilter의 이해
+ - 챕터 5 - Logout(로그아웃), LogoutFilter
