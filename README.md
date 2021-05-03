@@ -13,3 +13,4 @@ gradle 6.5+
  - 챕터 3 - 폼(form) 로그인 인증
  - 챕터 4 - UsernamePasswordAuthenticationFilter의 이해
  - 챕터 5 - Logout(로그아웃), LogoutFilter
+ - 챕터 6 - Remember me 인증
