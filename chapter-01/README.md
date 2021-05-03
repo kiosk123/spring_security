@@ -2,6 +2,7 @@
 
 ### 스프링 부트 기반으로 스프링 시큐리티 프로젝트를 구성한다
 
+시큐리티 의존성을 추가시 기본적인 보안이 적용된다.
 ```gradle
 plugins {
 	id 'org.springframework.boot' version '2.4.0'
