@@ -50,26 +50,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             })
             .permitAll(); // 로그인 페이지( .loginPage() 통해서 설정 )는 누구나 접근가능해야 하므로(인증을 받지 않아도 접근해야 로그인이 가능하다)
 
-            /**
-             *  폼 로그아웃 처리 
-             *  클라이언트에서 GET 방식이 아닌 POST 방식으로 로그아웃 처리 요청을 보내야한다.
-             */
-            http.logout()
-                .logoutUrl("/logout") // 로그아웃 URL 설정 아무 것도 설정하지 않으면 기본으로 /logout으로 설정됨
-                .logoutSuccessUrl("/login") // 로그아웃 성공시 이동할 URL
-                .addLogoutHandler(new LogoutHandler(){ // 로그아웃시 처리할 핸들러 등록
-                    @Override
-                    public void logout(HttpServletRequest request, HttpServletResponse response,
-                            Authentication authentication) {
-                        HttpSession session =  request.getSession();
-                        session.invalidate();
-                    }
-                })
-                // 로그아웃 성공시 처리할 핸들러 등록 (LogoutSuccessHandler 인터페이스 사용));
-                .logoutSuccessHandler((request, response, authentication) ->  response.sendRedirect("/login"))
+        /**
+         *  폼 로그아웃 처리 
+         *  클라이언트에서 GET 방식이 아닌 POST 방식으로 로그아웃 처리 요청을 보내야한다.
+         */
+        http.logout()
+            .logoutUrl("/logout") // 로그아웃 URL 설정 아무 것도 설정하지 않으면 기본으로 /logout으로 설정됨
+            .logoutSuccessUrl("/login") // 로그아웃 성공시 이동할 URL
+            .addLogoutHandler(new LogoutHandler(){ // 로그아웃시 처리할 핸들러 등록
+                @Override
+                public void logout(HttpServletRequest request, HttpServletResponse response,
+                        Authentication authentication) {
+                    HttpSession session =  request.getSession();
+                    session.invalidate();
+                }
+            })
+            // 로그아웃 성공시 처리할 핸들러 등록 (LogoutSuccessHandler 인터페이스 사용));
+            .logoutSuccessHandler((request, response, authentication) ->  response.sendRedirect("/login"))
 
-                // 로그아웃시 제거할 쿠키명들을 선언
-                .deleteCookies("JSESSIONID", "remember-me");
+            // 로그아웃시 제거할 쿠키명들을 선언
+            .deleteCookies("JSESSIONID", "remember-me");
 
     }
 }
