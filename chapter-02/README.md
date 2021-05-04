@@ -1,7 +1,8 @@
 # 챕터 02 - 사용자 정의 보안 기능 구현
 
-![1.png](./1.png)
-![2.png](./2.png)
+<img src="./img/1.png" width="900" height="450">
+<img src="./img/2.png" width="900" height="450">
+
 - 시큐리티 구성 클래스 설정
   - @Configuration
   - @EnableWebSecurity
