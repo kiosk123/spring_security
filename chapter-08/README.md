@@ -9,5 +9,8 @@
 - changeSessionId() : Servlet 3.1 이상 기본값
 - migrationSession() : Servlet 3.1 미만 기본값, changeSessionId()와 역할 동일
 - newSession() : 이전에 매핑된 세션데이터를 완전 삭제 후 새로운 새션아이디를 발급 받고 완전한 새로운 세션 생성 
-- none() : 세션아이디를 변경하지 않음
+- none() : 세션아이디를 변경하지 않음  
+  
 <img src="./img/5.png" width="900" height="450">
+  
+- Stateless 정책은 JWT(Json Web Token) 방식으로 인증할 때 사용해야한다.
