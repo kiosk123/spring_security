@@ -6,15 +6,17 @@ spring boot 2.4+
 h2 database  
 gradle 6.5+
 ## 챕터별 설명
- - 챕터 0 - 시큐리티 맛보기
-    - 폼기반 인증, 암호화 처리, 인가처리, rememeber-me처리등 시큐리티 전반에 대한 기능 맛보기 프로젝트  
- - 챕터 01 - 시큐리티 프로젝트 구성
- - 챕터 02 - 사용자 정의 보안 기능 구현
- - 챕터 03 - 폼(form) 로그인 인증
- - 챕터 04 - UsernamePasswordAuthenticationFilter의 이해
- - 챕터 05 - Logout(로그아웃), LogoutFilter
- - 챕터 06 - Remember me 인증
- - 챕터 07 - AnonymousAuthenticationFilter 익명 사용자 인증 처리 필터
- - 챕터 08 - 동시세션제어, 세션고정보호, 세션정책
- - 챕터 09 - SessionManagementFilter, ConcurrentSessionFilter의 이해
- - 챕터 10 - 권한 설정 및 표현식
+- 챕터 0 - 시큐리티 맛보기
+  - 폼기반 인증, 암호화 처리, 인가처리, rememeber-me처리등 시큐리티 전반에 대한 기능 맛보기 프로젝트  
+- 챕터 01 - 시큐리티 프로젝트 구성
+- 챕터 02 - 사용자 정의 보안 기능 구현
+- 챕터 03 - 폼(form) 로그인 인증
+- 챕터 04 - UsernamePasswordAuthenticationFilter의 이해
+- 챕터 05 - Logout(로그아웃), LogoutFilter
+- 챕터 06 - Remember me 인증
+- 챕터 07 - AnonymousAuthenticationFilter 익명 사용자 인증 처리 필터
+- 챕터 08 - 동시세션제어, 세션고정보호, 세션정책
+- 챕터 09 - SessionManagementFilter, ConcurrentSessionFilter의 이해
+- 챕터 10 - 권한 설정 및 표현식
+- 챕터 11 - ExceptionTranslationFilter, RequestCacheAwareFilter의 이해 - 인증과 인가 예외처리
+
