@@ -108,6 +108,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          */
         .and().sessionFixation()
             .changeSessionId(); //기본값
-            ; 
+            
         }
 }
