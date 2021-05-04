@@ -1,13 +1,9 @@
 # 챕터 06 - Remember me 인증
 
-<img src="./img/1.png" width="900" height="450">
-<img src="./img/2.png" width="900" height="450"> 
-<img src="./img/3.png" width="900" height="450">
-  
-- TokenBasedRememberMeServices : 메모리에 저장된 토큰과 사용자 쿠키의 토큰과 비교해서 인증처리
-- PersistentTokenBasedRememberMeServices : 데이버베이스에 저장된 토큰과 사용자 쿠키의 토큰과 비교해서 인증처리  
-  
-<img src="./img/4.png" width="900" height="450">
+![1.png](./img/1.png  )
+![2.png](./img/2.png)  
+![3.png](./img/3.png)  
+![4.png](./img/4.png)  
 
 ### 리멤버미 인증 설정
 리멤버미 인증을 다음과 같이 구성 클래스에 설정할 수 있다.  
@@ -105,7 +101,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          */
         .and().rememberMe()
             .rememberMeParameter("remember-me")
-            .tokenValiditySeconds(3450) // 3450초 = 1시간
+            .tokenValiditySeconds(3600) // 3600초 = 1시간
 
             // 리멤버미 사용할때 시스템에 있는 사용자 계정 조회처리하는 과정이 있는데 그러한 처리를 담당하는 서비스를 지정한다. - 필수!!!
             .userDetailsService(userDetailsService); 

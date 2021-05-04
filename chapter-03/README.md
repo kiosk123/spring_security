@@ -1,8 +1,7 @@
 # 챕터 03 - 폼(form)로그인 인증
 
-<img src="./img/1.png" width="900" height="450">
-<img src="./img/2.png" width="900" height="450">
-
+![1.png](./1.png)  
+![2.png](./2.png)  
 아이디 파라미터와 패스워드 파라미터의 의미는 form 태그를 통해서 넘어오는 아이디와, 패스워드가 매핑된 파라미터 명이다.
 ```html
 <form action="<send request data to loginProcessingUrl>">

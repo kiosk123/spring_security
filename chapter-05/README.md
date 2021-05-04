@@ -1,11 +1,10 @@
 # 챕터 05 - Logout (로그아웃), LogoutFilter
 
+![1.png](./img/1.png  )
+![2.png](./img/2.png)  
+![3.png](./img/3.png)  
+![4.png](./img/4.png)  
 
-<img src="./img/1.png" width="900" height="450">
-<img src="./img/2.png" width="900" height="450">
-<img src="./img/3.png" width="900" height="450">
-<img src="./img/4.png" width="900" height="450">
-  
 ## 로그아웃 스프링 시큐리티 구성
 ```java
 @Configurable

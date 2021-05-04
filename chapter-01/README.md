@@ -45,8 +45,7 @@ Using generated security password: 735e7d0f-094c-477e-a550-e540b152daf5
 
 ### 시큐리티는 로그인 페이지를 설정하지 않으면 기본 로그인 페이지를 제공한다.
 
-
-<img src="./img/login.png" width="900" height="450">
+![login.png](./login.png)
 
 로그인 페이지에 임시 비밀번호를 사용할 경우
 - 아이디 : user
