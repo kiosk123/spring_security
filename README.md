@@ -15,3 +15,4 @@ gradle 6.5+
  - 챕터 05 - Logout(로그아웃), LogoutFilter
  - 챕터 06 - Remember me 인증
  - 챕터 07 - AnonymousAuthenticationFilter 익명 사용자 인증 처리 필터
+ - 챕터 08 - 동시세션제어, 세션고정보호, 세션정책
