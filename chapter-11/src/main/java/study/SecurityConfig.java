@@ -1,15 +1,3 @@
-# 챕터 11 - ExceptionTranslationFilter, RequestCacheAwareFilter의 이해
-
-<img src="./img/1.png" width="900" height="450">
-- AuthenticationEntryPoint를 직접 구현하여 처리할 수도 있음
-- RequestCache : 사용자가 이전 요청정보(사용자가 이동하려고 시도한 URL등)을 저장하고 인증 성공시 RequestCache에 저장된 정보를 가져와서 사용
-- AccessDeniedHandler를 직접 구현하여 처리할 수도 있음
-<img src="./img/2.png" width="900" height="450">
-<img src="./img/3.png" width="900" height="450">
-<img src="./img/4.png" width="900" height="450">
-
-### 예제 코드
-```java
 package study;
 
 import java.io.IOException;
@@ -59,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          * 권한 설정 및 표현식 처리 - 선언적 방식
          */
         http.authorizeRequests()
-                .antMatchers("/login").permitAll() // login 페이지는 인증받지 않아도 이동할 수 있어야 하므로
+                .antMatchers("/login").permitAll()
                 .antMatchers("/user").hasRole("USER")
                 .antMatchers("/sys").hasRole("SYS")
                 .antMatchers("/admin/pay").hasRole("ADMIN")
@@ -103,15 +91,54 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             })
             .permitAll() // 로그인 페이지( .loginPage() 통해서 설정 )는 누구나 접근가능해야 하므로(인증을 받지 않아도 접근해야 로그인이 가능하다)
 
-        //... 생략
+        /**
+         *  폼 로그아웃 처리 
+         *  클라이언트에서 GET 방식이 아닌 POST 방식으로 로그아웃 처리 요청을 보내야한다.
+         */
+        .and().logout()
+            .logoutUrl("/logout") // 로그아웃 URL 설정 아무 것도 설정하지 않으면 기본으로 /logout으로 설정됨
+            .logoutSuccessUrl("/login") // 로그아웃 성공시 이동할 URL
+            .addLogoutHandler(new LogoutHandler(){ // 로그아웃시 처리할 핸들러 등록
+                @Override
+                public void logout(HttpServletRequest request, HttpServletResponse response,
+                        Authentication authentication) {
+                    HttpSession session =  request.getSession();
+                    session.invalidate();
+                }
+            })
+            // 로그아웃 성공시 처리할 핸들러 등록 (LogoutSuccessHandler 인터페이스 사용));
+            .logoutSuccessHandler((request, response, authentication) ->  response.sendRedirect("/login"))
 
+            // 로그아웃시 제거할 쿠키명들을 선언
+            .deleteCookies("JSESSIONID", "remember-me")
+        
+        /** 
+         * 리멤버미 인증 처리
+         */
+        .and().rememberMe()
+            .rememberMeParameter("remember-me")
+            .tokenValiditySeconds(3600) // 3600초 = 1시간
+
+            // 리멤버미 사용할때 시스템에 있는 사용자 계정 조회처리하는 과정이 있는데 그러한 처리를 담당하는 서비스를 지정한다. - 필수!!!
+            .userDetailsService(userDetailsService)
+        
+        /**
+         *  동시 세션 제어
+         */
+        .and().sessionManagement() 
+            //동시 세션 제어
+            .maximumSessions(1)
+            .maxSessionsPreventsLogin(true) // 현재 사용자 세션의 한도 초과시 인증 실패
+        /**
+         * 세션 고정 보호
+         */
+        .and().sessionFixation()
+            .changeSessionId() //기본값
         /**
         * 인증 예외, 인가 예외처리
         */
         .and().exceptionHandling()
-            .authenticationEntryPoint( (request, response, authException) -> response.sendRedirect("/login")) // 인증 예외 처리 -  여기서 login 처리는 프로그래머가 작성한 login 페이지를 뜻함(시큐리티가 제공한 페이지X)
+            // .authenticationEntryPoint( (request, response, authException) -> response.sendRedirect("/login")) // 인증 예외 처리 -  여기서 login 처리는 프로그래머가 작성한 login 페이지를 뜻함(시큐리티가 제공한 페이지X)
             .accessDeniedHandler((request, response, accessDeniedException) -> response.sendRedirect("/denied")); // 인가 예외 처리
     }
 }
-
-```
