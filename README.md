@@ -19,4 +19,5 @@ gradle 6.5+
 - 챕터 09 - SessionManagementFilter, ConcurrentSessionFilter의 이해
 - 챕터 10 - 권한 설정 및 표현식
 - 챕터 11 - ExceptionTranslationFilter, RequestCacheAwareFilter의 이해 - 인증과 인가 예외처리
+- 챕터 12 - CSRF, CsrfFilter의 이해
 
