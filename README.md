@@ -22,3 +22,5 @@ gradle 6.5+
 - 챕터 12 - CSRF, CsrfFilter의 이해
 - 챕터 13 - DelegatingFilterProxy, FilterChainPorxy(요청을 위임 받아 필터들 처리역할을 맡는 프록시)의 이해
 - 챕터 14 - 필터 초기화와 다중보안
+- 챕터 15 - Authentication 아키텍처의 이해
+- 챕터 16 - SecurityContextHolder, SecurityContext 아키텍처의 이해
