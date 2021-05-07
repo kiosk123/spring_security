@@ -2,6 +2,8 @@
 
 <img src="./img/1.png" width="900" height="450">  
 <img src="./img/2.png" width="900" height="450">
+  
+타임리프나 spring form 태그를 사용하는 경우에는 CSRF 토큰 값이 들어가 있지만, 일반적인 폼을 사용할 경우 직접 설정해줘야한다.
 
 ## 예제 코드 - csrf 사용하지 않기
 ```java

@@ -20,4 +20,5 @@ gradle 6.5+
 - 챕터 10 - 권한 설정 및 표현식
 - 챕터 11 - ExceptionTranslationFilter, RequestCacheAwareFilter의 이해 - 인증과 인가 예외처리
 - 챕터 12 - CSRF, CsrfFilter의 이해
-
+- 챕터 13 - DelegatingFilterProxy, FilterChainPorxy(요청을 위임 받아 필터들 처리역할을 맡는 프록시)의 이해
+- 챕터 14 - 필터 초기화와 다중보안
