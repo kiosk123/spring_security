@@ -28,3 +28,4 @@ gradle 6.5+
 - 챕터 18 - Authentication Flow(인증 흐름)의 이해
 - 챕터 19 - AuthenticationManager의 이해
 - 챕터 20 - AuthenticationProvider의 이해
+- 챕터 21 - Authorization, FilterSecurityInterceptor 인가 개념 및 필터 이해
