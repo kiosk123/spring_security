@@ -26,3 +26,4 @@ gradle 6.5+
 - 챕터 16 - SecurityContextHolder, SecurityContext 아키텍처의 이해
 - 챕터 17 - SecurityContextPersistenceFilter의 이해 (SecurityContext 객체의 생성, 저장, 조회)
 - 챕터 18 - Authentication Flow(인증 흐름)의 이해
+- 챕터 19 - AuthenticationManager의 이해
