@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests() // 보안 검사
                 .anyRequest().authenticated(); // 어떠한 요청에도 인증을 하겠다는 의미
-
+        
         http.formLogin()
                 .loginPage("/loginPage") // login 페이지가 표시되는 URL 설정
                 .defaultSuccessUrl("/")  // login 성공시 이동할 URL 설정
