@@ -29,3 +29,5 @@ gradle 6.5+
 - 챕터 19 - AuthenticationManager의 이해
 - 챕터 20 - AuthenticationProvider의 이해
 - 챕터 21 - Authorization, FilterSecurityInterceptor 인가 개념 및 필터 이해
+- 챕터 22 - AccessDecisionManager, AccessDecisionVoter의 이해
+- 챕터 23 - 스프링 시큐리티 필터 및 아키텍처 정리
