@@ -31,3 +31,4 @@ gradle 6.5+
 - 챕터 21 - Authorization, FilterSecurityInterceptor 인가 개념 및 필터 이해
 - 챕터 22 - AccessDecisionManager, AccessDecisionVoter의 이해
 - 챕터 23 - 스프링 시큐리티 필터 및 아키텍처 정리
+- 챕터 24 - 실전 프로젝트 폼(Form) 인증 구현 - 프로젝트 구성 및 시큐리티 설정 클래스 구현
