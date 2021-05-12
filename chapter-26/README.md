@@ -32,8 +32,8 @@ public static PasswordEncoder createDelegatingPasswordEncoder() {
 ```
 
 ### 1-2. 암호화 포맷
-- bcrypt, noop, pbkdf2, scrypt, sha256 (기본 포맷은 Bcrypt : {bcrypt}$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG )
-- PasswordEncoder 인터페이스 
+bcrypt, noop, pbkdf2, scrypt, sha256 (기본 포맷은 Bcrypt : {bcrypt}$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG )
+### 1-3. PasswordEncoder 인터페이스 
 ```java
 public interface PasswordEncoder {
     // 패스워드 암호화
