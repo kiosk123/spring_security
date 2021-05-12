@@ -1,9 +1,13 @@
-# 챕터 25 - 실전 프로젝트 폼(Form) 인증 구현 - WebIgnore 설정
+package io.security.config;
 
-js / css / image 파일 등 보안 필터를 적용할 필요가 없는 리소스를 설정한다.  
-`permitAll()`과 차이점은 `permitAll()`은 보안 필터를 거치고 WebIgnore 설정은 보안 필터를 거치치 않는다는 것이다.
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-```java
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -16,13 +20,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication().withUser("user").password(password).roles("USER");
         auth.inMemoryAuthentication().withUser("manager").password(password).roles("MANAGER");
         auth.inMemoryAuthentication().withUser("admin").password(password).roles("ADMIN");
-    }
-
-    // Web Ignore 설정
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        // PathRequest 패키지 경로 주의! - org.springframework.boot.autoconfigure.security.servlet.PathRequest
-        web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }
 
     // PasswordEncoder 빈 생성
@@ -43,5 +40,3 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .formLogin();
     }
 }
-
-```

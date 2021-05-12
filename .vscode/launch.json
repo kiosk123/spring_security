@@ -5,6 +5,13 @@
             "name": "Launch StartApplication",
             "request": "launch",
             "mainClass": "io.StartApplication",
+            "projectName": "chapter-25"
+        },
+        {
+            "type": "java",
+            "name": "Launch StartApplication",
+            "request": "launch",
+            "mainClass": "io.StartApplication",
             "projectName": "chapter-24"
         },
         {
