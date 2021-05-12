@@ -71,14 +71,88 @@ test {
 	useJUnitPlatform()
 }
 ```
+## application.yml 설정 - [참고](https://engkimbs.tistory.com/794)
+```yml
+spring:
+  profiles:
+    active: dev
+  data:
+    web:
+      pageable:
+        max-page-size: 50
+        default-page-size: 20
+server:
+  servlet:
+    encoding:
+      force: true
+      enabled: true
+      charset: UTF-8
+logging:
+  level:
+    study: debug 
+    org.hibernate.SQL: debug #logger를 통해 출력
+    org.hibernate.type: trace #SQL 쿼리 파라미터를 확인할 수 있다
+    org.spring.framework.web: debug 
+    org.springframework.security: debug
+    
+---
+spring:
+  profiles:
+  - dev
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/security
+    
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        # 드라이버가 createClub을 지원하지 않아서 warning 뜨는 것을 방지
+        jdbc.lob.non_contextual_creation: true 
+#        show_sql: true # System.out을 통해 출력
+        format_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.H2Dialect
+        default_batch_fetch_size: 100
+---
+spring:
+  profiles:
+  - prod
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/security
+    
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+#        show_sql: true # System.out을 통해 출력
+        format_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.H2Dialect
+        default_batch_fetch_size: 100
+```
 
 ## 시큐리티 설정 클래스 구현
 
 ```java
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-    @Override
+	
+	@Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
         // PasswordEncdoer 빈을 이용하여 평문을 암호화

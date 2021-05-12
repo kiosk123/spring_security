@@ -1,10 +1,8 @@
 package io.security.config;
 
-import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -22,13 +20,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication().withUser("user").password(password).roles("USER");
         auth.inMemoryAuthentication().withUser("manager").password(password).roles("MANAGER");
         auth.inMemoryAuthentication().withUser("admin").password(password).roles("ADMIN");
-    }
-
-    // Web Ignore 설정
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        // PathRequest 패키지 경로 주의! - org.springframework.boot.autoconfigure.security.servlet.PathRequest
-        web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }
 
     // PasswordEncoder 빈 생성
