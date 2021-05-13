@@ -1,4 +1,4 @@
-# 챕터 27 - 실전 프로젝트 폼(Form) 인증 구현 - CustomerUserDetailsService DB연동 인증처리 - 1
+# 챕터 27 - 실전 프로젝트 폼(Form) 인증 구현 - CustomUserDetailsService DB연동 인증처리 - 1
 
 ## 1. 메모리 인증 구성 삭제
 DB를 이용해 인증처리를 하기 때문에 메모리 인증 구성을 삭제한다.

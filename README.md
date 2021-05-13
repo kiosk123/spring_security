@@ -34,4 +34,5 @@ gradle 6.5+
 - 챕터 24 - 실전 프로젝트 폼(Form) 인증 구현 - 프로젝트 구성 및 시큐리티 설정 클래스 구현
 - 챕터 25 - 실전 프로젝트 폼(Form) 인증 구현 - WebIgnore 설정
 - 챕터 26 - 실전 프로젝트 폼(Form) 인증 구현 - 사용자 등록과 PasswordEncoder
-- 챕터 27 - 실전 프로젝트 폼(Form) 인증 구현 - CustomerUserDetailsService DB연동 인증처리 - 1
+- 챕터 27 - 실전 프로젝트 폼(Form) 인증 구현 - CustomUserDetailsService DB연동 인증처리 - 1
+- 챕터 28 - 실전 프로젝트 폼(Form) 인증 구현 - CustomAuthenticationProvider DB연동 인증처리 - 2

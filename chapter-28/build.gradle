@@ -1,0 +1,57 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.0'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'study'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// query 로그 보는 라이브러리
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6' 
+	
+	// querydsl 추가
+	implementation 'com.querydsl:querydsl-jpa'
+	
+	// 타임리프 레이아웃 라이브러리
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.5.1'
+
+	// 타임리프
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	// jpa
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// h2 데이터 베이스 
+	runtimeOnly 'com.h2database:h2'
+
+	// web mvc
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// 시큐리티
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// 객체 프로퍼티간 맵핑시 유용 (VO -> DTO )http://modelmapper.org/getting-started/
+	implementation 'org.modelmapper:modelmapper:2.4.3'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+	useJUnitPlatform()
+}
