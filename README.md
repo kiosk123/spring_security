@@ -36,3 +36,5 @@ gradle 6.5+
 - 챕터 26 - 실전 프로젝트 폼(Form) 인증 구현 - 사용자 등록과 PasswordEncoder
 - 챕터 27 - 실전 프로젝트 폼(Form) 인증 구현 - CustomUserDetailsService DB연동 인증처리 - 1
 - 챕터 28 - 실전 프로젝트 폼(Form) 인증 구현 - CustomAuthenticationProvider DB연동 인증처리 - 2
+- 챕터 29 - 커스텀 로그인 페이지 생성하기
+
