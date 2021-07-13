@@ -30,15 +30,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
     
+
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-            .antMatchers("/mypage").hasRole("USER")
-            .antMatchers("/messages").hasRole("MANAGER")
-            .antMatchers("/config").hasRole("ADMIN")
-            .antMatchers("/", "/users", "/user/login/**").permitAll()
-            .anyRequest().authenticated()
+    protected void configure(final HttpSecurity http) throws Exception {
+        http
+                .authorizeRequests()
+                .antMatchers("/","/users","user/login/**","/login*").permitAll()
+                .antMatchers("/mypage").hasRole("USER")
+                .antMatchers("/messages").hasRole("MANAGER")
+                .antMatchers("/config").hasRole("ADMIN")
+                .anyRequest().authenticated()
         .and()
-            .formLogin();
+                .formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/login_proc")
+                .defaultSuccessUrl("/")
+                .permitAll();
     }
 }
